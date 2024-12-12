@@ -20,7 +20,7 @@
 .wpsf-settings--enweby_fullscreen_background  .fb_slideshow_shadow,
 .wpsf-settings--enweby_fullscreen_background  .fb_vid_display_type{display:none;}
 
-.fb_bg_image, .fb_bg_video, .fb_bg_color, .fb_video_background_position, .fb_video_background_fit, .fb_background_size, .fb_background_position, .fb_background_attachment, .fb_page_field_id, .fb_post_field_id{ display:none; }
+.fb_bg_image, .fb_bg_video, .fb_bg_color, .fb_video_background_position, .fb_video_background_fit, .fb_video_loop, .fb_video_mute, .fb_background_size, .fb_background_position, .fb_background_attachment, .fb_page_field_id, .fb_post_field_id{ display:none; }
 .no-image-preview{display:none;}
 .enwb-fb-free-class .fb_slideshow_image_random{display:none;}
 /*** page/post wise ***/
@@ -87,7 +87,7 @@ span.field-hint{font-size:12px;font-weight:normal;margin-left:5px;}
 
 .wpsf-settings--enweby_fullscreen_background .wpsf-section.wpsf-tabless {max-width:68%;}
 .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random{display:none;}
-
+textarea#fb-custom-css {width: 100%;border: 1px solid #ddd;}
 @media screen and (max-width: 1300px) {
 .wpsf-settings--enweby_fullscreen_background .wpsf-section.wpsf-tabless {max-width:68%;}
 }

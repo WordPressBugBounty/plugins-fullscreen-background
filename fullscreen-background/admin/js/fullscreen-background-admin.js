@@ -129,7 +129,7 @@
 				$( ".fb_bg_image, .fb_background_size, .fb_background_position, .fb_background_attachment" ).show();
 			}
 			if ( $( ".fb_background_type" ).find( 'option:selected' ).val() == "video" ) {
-				$( ".fb_bg_video,.fb_video_background_position, .fb_video_background_fit" ).show();
+				$( ".fb_bg_video,.fb_video_background_position, .fb_video_background_fit, .fb_video_loop, .fb_video_mute" ).show();
 			}
 			if ( $( ".fb_background_type" ).find( 'option:selected' ).val() == "color" ) {
 				$( ".fb_bg_color" ).show();
@@ -146,15 +146,15 @@
 				function(){
 					if ( $( ".fb_background_type" ).find( 'option:selected' ).val() == "image" ) {
 						$( ".fb_bg_image, .fb_background_size, .fb_background_position, .fb_background_attachment" ).show();
-						$( ".fb_bg_color, .fb_bg_video,.fb_video_background_position, .fb_video_background_fit" ).hide();
+						$( ".fb_bg_color, .fb_bg_video,.fb_video_background_position, .fb_video_background_fit, .fb_video_loop, .fb_video_mute" ).hide();
 					}
 					if ( $( ".fb_background_type" ).find( 'option:selected' ).val() == "video" ) {
-						$( ".fb_bg_video,.fb_video_background_position, .fb_video_background_fit" ).show();
+						$( ".fb_bg_video,.fb_video_background_position, .fb_video_background_fit, .fb_video_loop, .fb_video_mute" ).show();
 						$( ".fb_bg_image, .fb_background_size, .fb_background_position, .fb_background_attachment,.fb_bg_color" ).hide();
 					}
 					if ( $( ".fb_background_type" ).find( 'option:selected' ).val() == "color" ) {
 						$( ".fb_bg_color" ).show();
-						$( ".fb_bg_image, .fb_background_size, .fb_background_position, .fb_background_attachment, .fb_bg_video,.fb_video_background_position, .fb_video_background_fit" ).hide();
+						$( ".fb_bg_image, .fb_background_size, .fb_background_position, .fb_video_loop, .fb_video_mute, .fb_background_attachment, .fb_bg_video,.fb_video_background_position, .fb_video_background_fit" ).hide();
 					}
 				}
 			);
@@ -493,7 +493,7 @@
 			
 			//should be added at end off script to prevent conflict to above js code
 			if( $('#fb-custom-css').length ) {
-				wp.codeEditor.initialize($('#fb-custom-css'), enwb_fb_settings);
+				/*wp.codeEditor.initialize($('#fb-custom-css'), enwb_fb_settings);*/ //commented because it is blocking custom css saving in admin.
 			}			
 			
 			/** end fb page/post wise */

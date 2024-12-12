@@ -228,6 +228,31 @@ function enwbfs_fullscreen_background_wpsf_tabless_settings( $wpsf_settings ) {
 				'default'  => 'fixed',
 				'class'	   => 'regular-text',
 			),
+			
+			/*array(
+				'id'      => 'fb_video_loop',
+				'title'   => __( 'Enable Video Loop', 'fullscreen-background' ),
+				'type'    => 'select',
+				'choices' => array(
+					'1'  => __( 'Yes', 'fullscreen-background' ),
+					'2'   => __( 'No', 'fullscreen-background' ),
+				),
+				'default'  => '1',
+				'class'	   => 'regular-text',
+			),
+			
+			array(
+				'id'      => 'fb_video_mute',
+				'title'   => __( 'Mute Video', 'fullscreen-background' ),
+				'type'    => 'select',
+				'choices' => array(
+					'2'  	=> __( 'No', 'fullscreen-background' ),
+					'1' => __( 'Yes', 'fullscreen-background' ),
+					
+				),
+				'default'  => '1',
+				'class'	   => 'regular-text',
+			),*/
 
 			array(
 				'id'      => 'fb_common_shadow',

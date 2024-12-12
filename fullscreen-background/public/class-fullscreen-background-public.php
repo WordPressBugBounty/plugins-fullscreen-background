@@ -186,7 +186,7 @@ class Fullscreen_Background_Public {
         //make site main content background transparent.
         $fullscreen_background_styles .= '.enweby-fullscreen-background #page, .enweby-fullscreen-background .site,.enweby-fullscreen-background #content,.enweby-fullscreen-background .site-content,.enweby-fullscreen-background .site-main,.enweby-fullscreen-background #content-area,.enweby-fullscreen-background .page-wrapper { background:transparent!important; background:none!important; background-color:unset!important; }';
         if ( 1 == $enweby_fb_make_header_transparent ) {
-            $fullscreen_background_styles .= '.enweby-fullscreen-background header,.enweby-fullscreen-background .header,.enweby-fullscreen-background .site-header{ background:none!important; background-color:unset!important; background:transparent!important;}';
+            $fullscreen_background_styles .= '.enweby-fullscreen-background header,.enweby-fullscreen-background .header,.enweby-fullscreen-background .site-header, .enweby-fullscreen-background .ast-main-header-wrap .main-header-bar{ border:none !important; background:none!important; background-color:unset!important; background:transparent!important;}';
         }
         $enweby_fb_remove_elements_trimmed = trim( $enweby_fb_remove_elements, ',' );
         $fullscreen_background_styles .= $enweby_fb_remove_elements_trimmed . '{ background:transparent!important; background:none!important; background-color:unset!important;}';
@@ -280,7 +280,7 @@ class Fullscreen_Background_Public {
 								#page{position:relative;z-index:99999;}
 							</style>
 							<div class='enweby-fullscreen-video-background-wrapper'>
-								<video playsinline autoplay muted loop poster=''>
+								<video playsinline autoplay muted loop poster='' >
 									<source src='<?php 
                         echo esc_url( $background_video );
                         ?>' type='video/webm'>

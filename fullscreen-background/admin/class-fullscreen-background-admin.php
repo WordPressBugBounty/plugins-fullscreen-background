@@ -357,7 +357,7 @@ class Fullscreen_Background_Admin {
      * Setting plugin menu element.
      */
     public function menu_settings_using_helper() {
-        require_once FULLSCREEN_BACKGROUND_DIR . 'vendor/boo-settings-helper/class-boo-settings-helper.php';
+        require_once FULLSCREEN_BACKGROUND_DIR . 'vendor/boo/boo-settings-helper/class-boo-settings-helper.php';
         $fullscreen_background_settings = array(
             'tabs'     => true,
             'prefix'   => 'enweby_',

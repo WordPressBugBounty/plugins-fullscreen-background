@@ -4,9 +4,9 @@ Donate link: https://www.enweby.com/donate-now/
 Tags: Full screen Background video, Fullscreen Background image, Fullscreen Background video, Full Screen video, background image, background video on home.
 Requires PHP: 5.6
 Requires at least: 5.6
-Tested up to: 6.5
+Tested up to: 6.7
 Stable tag: trunk
-Version: 2.0.1
+Version: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -175,6 +175,10 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 
 == Changelog ==
 
+= 2.0.2 =
+* Advanced licensing system
+* Compatibility with wordpress 6.7+
+
 = 2.0.1 =
 * Lazyloading added on slideshow
 * Random image functionality on slidehshow.
@@ -220,5 +224,5 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 * Initial Release.
 
 == Upgrade Notice ==
-= 2.0.1 =
-* Version 2.0.1 released.
+= 2.0.2 =
+* Version 2.0.2 released.
