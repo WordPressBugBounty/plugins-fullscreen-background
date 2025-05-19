@@ -61,7 +61,8 @@ class Fullscreen_Background_Admin {
     public function __construct( $plugin_name, $version ) {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
-        $this->add_setting_framework();
+        $this->add_setting_framework_init();
+        //$this->add_setting_framework();
         $this->enwbfb_get_setting_functions();
         $this->process_version_based_settings();
         $this->load_notices_files();
@@ -191,6 +192,15 @@ class Fullscreen_Background_Admin {
                 }
             }
         }
+    }
+
+    /**
+     * Initialize admin settings framework.
+     *
+     * @since    2.0.3
+     */
+    public function add_setting_framework_init() {
+        add_action( 'init', array($this, 'add_setting_framework') );
     }
 
     /**

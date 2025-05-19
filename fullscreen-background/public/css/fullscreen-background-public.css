@@ -3,7 +3,7 @@
  * included in this file.
  */
 	/* To make slideshow be background  */
-	.enweby-fullscreen-background .enwbfb-overlay{ position: fixed; top: 0; left: 0; content: ''; background-color: #000;  opacity: 0.3; z-index: 2;  height: 100%; width: 100%;}
+	.enweby-fullscreen-background .enwbfb-overlay{ position: fixed; top: 0; left: 0; content: ''; background-color: #000;  opacity: 0.3; z-index: 0;  height: 100%; width: 100%;}
 	.enweby-fullscreen-video-background-wrapper video {
 	width: 100%; height: 100vh; top: 0;left: 0;
 	}

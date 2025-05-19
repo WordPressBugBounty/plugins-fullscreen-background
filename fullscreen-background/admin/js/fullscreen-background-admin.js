@@ -50,14 +50,14 @@
 					if( fb_bg_img_val_array.length > 1 ) {
 						$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').show();
 						if( $('#fb_general_section_fb_img_display_type_slideshow').is(':checked') ) {
-							$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
+							$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
 						} else {
-							$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+							$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 						}
 					} else {
 						$('.enwb-fb-pro-class #fb_general_section_fb_img_display_type_single').prop('checked', true);
 						$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').hide();
-						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 					}
 				}
 			}
@@ -90,20 +90,20 @@
 							if( fb_bg_img_val_array.length > 1 ) {
 								$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').show();
 								if( $('#fb_general_section_fb_img_display_type_slideshow').is(':checked') ) {
-									$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
+									$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
 								} else {
-									$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+									$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 								}
 							} else {
 								$('.enwb-fb-pro-class #fb_general_section_fb_img_display_type_single').prop('checked', true);
 								$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').hide();
-								$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+								$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 							}
 						}
 					}
 					if ( $( ".fb_background_type" ).find( 'option:selected' ).val() == "video" ) {
 						$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').hide();
-						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 						var fb_bg_vid_val = $( '#fb_file_url_fb_general_section_fb_bg_video' ).val();
 						if( 'undefined' != typeof fb_bg_vid_val ){
 							var fb_bg_vid_val_array = fb_bg_vid_val.split(',');
@@ -117,7 +117,7 @@
 					}
 					if ( $( ".fb_background_type" ).find( 'option:selected' ).val() == "color" ) {
 					$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').hide();
-						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 						$('.wpsf-settings--enweby_fullscreen_background .fb_vid_display_type').hide();
 					}
 				}
@@ -201,14 +201,14 @@
 				if( arrImg.length > 2 ) {
 					$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').show();
 					if( $('#fb_general_section_fb_img_display_type_slideshow').is(':checked') ) {
-						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
+						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
 					} else {
-						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+						$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 					}
 				} else {
 					$('.enwb-fb-pro-class #fb_general_section_fb_img_display_type_single').prop('checked', true);
 					$('.wpsf-settings--enweby_fullscreen_background .fb_img_display_type').hide();
-					$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();					
+					$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();					
 				}
 				$(this).closest('.bg-image-list').remove();
 			});
@@ -243,9 +243,9 @@
 			//Changind bg img layout type radio
 			$(document).on('click', '[name="enweby_fullscreen_background_settings[fb_general_section_fb_img_display_type]"]', function(e) {
 				if( 'slideshow' == $(this).val() ) {
-					$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
+					$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').show();
 				} else {
-					$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
+					$('.wpsf-settings--enweby_fullscreen_background .fb-slide-delay, .wpsf-settings--enweby_fullscreen_background .fb-fade-animation-time, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_image_random, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_type, .wpsf-settings--enweby_fullscreen_background .fb_slideshow_shadow').hide();
 				}
 			});
 			/* fb post/page wise **/		

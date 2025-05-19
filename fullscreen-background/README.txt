@@ -4,9 +4,9 @@ Donate link: https://www.enweby.com/donate-now/
 Tags: Full screen Background video, Fullscreen Background image, Fullscreen Background video, Full Screen video, background image, background video on home.
 Requires PHP: 5.6
 Requires at least: 5.6
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: trunk
-Version: 2.0.3
+Version: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,6 +85,7 @@ Premium version supports fullscreen slideshow when multiple images is uploaded a
 **&#128073; Fullscreen Background Image Slideshow Settings**
 Fullscreen Background Image slideshow contains following settings to control the behavior of slideshow.
 
+* Fade animation Duration. (New feature since 2.0.4)
 * Slide Transition Duration.
 * Slide background shadow.
 * Slideshow effect without zoom.
@@ -175,6 +176,11 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 
 == Changelog ==
 
+= 2.0.4 =
+* Fade animation duration feature added
+* Disable video loop feature added.
+* Wp 6.8 compatibility.
+
 = 2.0.3 =
 * Security Update
 
@@ -227,5 +233,5 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 * Initial Release.
 
 == Upgrade Notice ==
-= 2.0.3 =
-* Version 2.0.3 released.
+= 2.0.4 =
+* Version 2.0.4 released.

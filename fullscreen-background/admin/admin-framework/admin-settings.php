@@ -105,6 +105,14 @@ function enwbfs_fullscreen_background_wpsf_tabless_settings( $wpsf_settings ) {
 			),
 			
 			array(
+				'id'    => 'fb-fade-animation-time',
+				'title' => __( 'Slide Fade Animation Time (in seconds)', 'fullscreen-background' ),
+				'type'  => 'number',
+				'default' => '2',
+				'class'	   => 'fb-img-display-type-elm animation-time',
+			),
+			
+			array(
 				'id'      => 'fb_slideshow_type',
 				'title'   => __( 'Slide Transition Method', 'fullscreen-background' ),
 				'type'    => 'radio',
@@ -229,25 +237,25 @@ function enwbfs_fullscreen_background_wpsf_tabless_settings( $wpsf_settings ) {
 				'class'	   => 'regular-text',
 			),
 			
-			/*array(
+			array(
 				'id'      => 'fb_video_loop',
-				'title'   => __( 'Enable Video Loop', 'fullscreen-background' ),
+				'title'   => __( 'Disable Video Play Loop', 'fullscreen-background' ),
 				'type'    => 'select',
 				'choices' => array(
+					'2'   => __( 'No (Default)', 'fullscreen-background' ),
 					'1'  => __( 'Yes', 'fullscreen-background' ),
-					'2'   => __( 'No', 'fullscreen-background' ),
 				),
-				'default'  => '1',
+				'default'  => '2',
 				'class'	   => 'regular-text',
 			),
 			
-			array(
+			/*array(
 				'id'      => 'fb_video_mute',
 				'title'   => __( 'Mute Video', 'fullscreen-background' ),
 				'type'    => 'select',
 				'choices' => array(
-					'2'  	=> __( 'No', 'fullscreen-background' ),
-					'1' => __( 'Yes', 'fullscreen-background' ),
+					'1'   => __( 'Yes', 'fullscreen-background' ),
+					'2'   => __( 'No', 'fullscreen-background' ),					
 					
 				),
 				'default'  => '1',

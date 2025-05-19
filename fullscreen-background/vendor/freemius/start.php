@@ -7,7 +7,7 @@
 	 */
 
 	if ( ! defined( 'ABSPATH' ) ) {
-		exit;
+		return;
 	}
 
 	/**
@@ -15,7 +15,7 @@
 	 *
 	 * @var string
 	 */
-	$this_sdk_version = '2.10.0';
+	$this_sdk_version = '2.12.0';
 
 	#region SDK Selection Logic --------------------------------------------------------------------
 
@@ -90,8 +90,8 @@
      * @author Leo Fajardo (@leorw)
      * @since 2.2.3
      */
-	$themes_directory         = get_theme_root( get_stylesheet() );
-	$themes_directory_name    = basename( $themes_directory );
+	$themes_directory      = fs_normalize_path( get_theme_root( get_stylesheet() ) );
+	$themes_directory_name = basename( $themes_directory );
 
     // This change ensures that the condition works even if the SDK is located in a subdirectory (e.g., vendor)
     $theme_candidate_sdk_basename = str_replace( $themes_directory . '/' . get_stylesheet() . '/', '', $fs_root_path );
@@ -108,15 +108,37 @@
         $is_current_sdk_from_parent_theme = $file_path == $themes_directory . '/' . get_template() . '/' . $theme_candidate_sdk_basename . '/' . basename( $file_path );
     }
 
+    $theme_name = null;
     if ( $is_current_sdk_from_active_theme ) {
-        $this_sdk_relative_path = '../' . $themes_directory_name . '/' . get_stylesheet() . '/' . $theme_candidate_sdk_basename;
+        $theme_name             = get_stylesheet();
+        $this_sdk_relative_path = '../' . $themes_directory_name . '/' . $theme_name . '/' . $theme_candidate_sdk_basename;
         $is_theme               = true;
     } else if ( $is_current_sdk_from_parent_theme ) {
-        $this_sdk_relative_path = '../' . $themes_directory_name . '/' . get_template() . '/' . $theme_candidate_sdk_basename;
+        $theme_name             = get_template();
+        $this_sdk_relative_path = '../' . $themes_directory_name . '/' . $theme_name . '/' . $theme_candidate_sdk_basename;
         $is_theme               = true;
     } else {
         $this_sdk_relative_path = plugin_basename( $fs_root_path );
         $is_theme               = false;
+
+        /**
+         * If this file was included from another plugin with lower SDK version, and if this plugin is symlinked, then we need to get the actual plugin path,
+         * as the value right now will be wrong, it will only remove the directory separator from the file_path.
+         *
+         * The check of `fs_find_direct_caller_plugin_file` determines that this file was indeed included by a different plugin than the main plugin.
+         */
+        if ( DIRECTORY_SEPARATOR . $this_sdk_relative_path === $fs_root_path && function_exists( 'fs_find_direct_caller_plugin_file' ) ) {
+            $direct_caller_plugin_file = fs_find_direct_caller_plugin_file( $file_path );
+
+            if ( ! empty( $direct_caller_plugin_file ) ) {
+                $original_plugin_dir_name = dirname( $direct_caller_plugin_file );
+
+                // Remove everything before the original plugin directory name.
+                $this_sdk_relative_path = substr( $this_sdk_relative_path, strpos( $this_sdk_relative_path, $original_plugin_dir_name ) );
+
+                unset( $original_plugin_dir_name );
+            }
+        }
     }
 
 	if ( ! isset( $fs_active_plugins ) ) {
@@ -202,7 +224,7 @@
 	) {
 		if ( $is_theme ) {
             // Saving relative path and not only directory name as it could be a subfolder
-            $plugin_path = $this_sdk_relative_path;
+            $plugin_path = $theme_name;
 		} else {
 			$plugin_path = plugin_basename( fs_find_direct_caller_plugin_file( $file_path ) );
 		}
@@ -357,7 +379,7 @@
 		return;
 	}
 
-	if ( version_compare( $this_sdk_version, $fs_active_plugins->newest->version, '<' ) ) {
+	if ( isset( $fs_active_plugins->newest ) && version_compare( $this_sdk_version, $fs_active_plugins->newest->version, '<' ) ) {
 		$newest_sdk = $fs_active_plugins->plugins[ $fs_active_plugins->newest->sdk_path ];
 
 		$plugins_or_theme_dir_path = ( ! isset( $newest_sdk->type ) || 'theme' !== $newest_sdk->type ) ?
@@ -423,6 +445,7 @@
 	 *      fs_is_submenu_visible_{plugin_slug}
 	 *      fs_plugin_icon_{plugin_slug}
 	 *      fs_show_trial_{plugin_slug}
+	 *      fs_is_pricing_page_visible_{plugin_slug}
 	 *
 	 * --------------------------------------------------------
 	 *

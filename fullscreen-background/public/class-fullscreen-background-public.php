@@ -191,7 +191,7 @@ class Fullscreen_Background_Public {
         $enweby_fb_remove_elements_trimmed = trim( $enweby_fb_remove_elements, ',' );
         $fullscreen_background_styles .= $enweby_fb_remove_elements_trimmed . '{ background:transparent!important; background:none!important; background-color:unset!important;}';
         if ( 1 == $enweby_fb_common_shadow ) {
-            $fullscreen_background_styles .= '.enweby-fullscreen-background #page,.enweby-fullscreen-background main,.enweby-fullscreen-background #site-content,.enweby-fullscreen-background #site-header, .enweby-fullscreen-background header,.enweby-fullscreen-background footer,.enweby-fullscreen-background #site-footer{position:relative;z-index:2;}';
+            $fullscreen_background_styles .= '.enweby-fullscreen-background #page,.enweby-fullscreen-background main,.enweby-fullscreen-background #site-content,.enweby-fullscreen-background #site-header, .enweby-fullscreen-background header,.enweby-fullscreen-background footer,.enweby-fullscreen-background #site-footer{position:relative;z-index:0;}';
         }
         echo wp_kses_post( $fullscreen_background_styles );
         ?>
@@ -259,6 +259,9 @@ class Fullscreen_Background_Public {
         $enweby_fb_bg_video = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_bg_video'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_bg_video'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_bg_video'] : '' );
         $enweby_fb_video_background_position = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_position'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_position'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_position'] : 'fixed' );
         $enweby_fb_video_background_fit = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_fit'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_fit'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_fit'] : 'cover' );
+        $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'];
+        $enweby_fb_video_loop = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'] : '2' );
+        $enweby_fb_video_loop_final = ( 2 == $enweby_fb_video_loop ? 'loop' : '' );
         // Getting background video.
         $background_video = ( '' !== $enweby_fb_bg_video ? $enweby_fb_bg_video : '' );
         $bg_video_html = '';
@@ -280,7 +283,9 @@ class Fullscreen_Background_Public {
 								#page{position:relative;z-index:99999;}
 							</style>
 							<div class='enweby-fullscreen-video-background-wrapper'>
-								<video playsinline autoplay muted loop poster='' >
+								<video playsinline autoplay muted <?php 
+                        echo esc_attr( $enweby_fb_video_loop_final );
+                        ?> poster='' >
 									<source src='<?php 
                         echo esc_url( $background_video );
                         ?>' type='video/webm'>
@@ -303,7 +308,9 @@ class Fullscreen_Background_Public {
 								#page{position:relative;z-index:99999;}
 							</style>
 							<div class='enweby-fullscreen-video-background-wrapper'>
-								<video playsinline autoplay muted loop poster=''>
+								<video playsinline autoplay muted <?php 
+                        echo esc_attr( $enweby_fb_video_loop_final );
+                        ?> poster=''>
 									<source src='<?php 
                         echo esc_url( $background_video );
                         ?>' type='video/webm'>
@@ -328,7 +335,9 @@ class Fullscreen_Background_Public {
 								#page{position:relative;z-index:99999;}
 							</style>
 							<div class='enweby-fullscreen-video-background-wrapper'>
-								<video playsinline autoplay muted loop poster=''>
+								<video playsinline autoplay muted <?php 
+                            echo esc_attr( $enweby_fb_video_loop_final );
+                            ?> poster=''>
 									<source src='<?php 
                             echo esc_url( $background_video );
                             ?>' type='video/webm'>
@@ -354,7 +363,9 @@ class Fullscreen_Background_Public {
 								#page{position:relative;z-index:99999;}
 							</style>
 							<div class='enweby-fullscreen-video-background-wrapper'>
-								<video playsinline autoplay muted loop poster=''>
+								<video playsinline autoplay muted <?php 
+                            echo esc_attr( $enweby_fb_video_loop_final );
+                            ?> poster=''>
 									<source src='<?php 
                             echo esc_url( $background_video );
                             ?>' type='video/webm'>
