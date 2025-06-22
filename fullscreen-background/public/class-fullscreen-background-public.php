@@ -259,7 +259,6 @@ class Fullscreen_Background_Public {
         $enweby_fb_bg_video = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_bg_video'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_bg_video'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_bg_video'] : '' );
         $enweby_fb_video_background_position = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_position'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_position'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_position'] : 'fixed' );
         $enweby_fb_video_background_fit = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_fit'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_fit'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_video_background_fit'] : 'cover' );
-        $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'];
         $enweby_fb_video_loop = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_video_loop'] : '2' );
         $enweby_fb_video_loop_final = ( 2 == $enweby_fb_video_loop ? 'loop' : '' );
         // Getting background video.

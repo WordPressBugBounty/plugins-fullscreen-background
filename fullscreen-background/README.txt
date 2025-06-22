@@ -234,4 +234,4 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 
 == Upgrade Notice ==
 = 2.0.4 =
-* Version 2.0.4 released.
+* Version 2.0.4 released now.
