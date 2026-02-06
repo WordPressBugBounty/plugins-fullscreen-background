@@ -24,9 +24,10 @@ function enwbfs_fullscreen_background_wpsf_tabless_settings( $wpsf_settings ) {
 		'section_order' => 1,
 		'fields'        => 
 		array(
+	
 			array(
 				'id'       => 'fb_display_options',
-				'title'    => 'Display on',
+				'title'    => 'Select Page to Display Fullscreen Background',
 				'subtitle' => '',
 				'type'     => 'select',
 				'choices'  => array(
@@ -53,7 +54,7 @@ function enwbfs_fullscreen_background_wpsf_tabless_settings( $wpsf_settings ) {
 			),
 			array(
 				'id'      => 'fb_background_type',
-				'title'   => __( 'Set Full Screen Background as', 'fullscreen-background' ),
+				'title'   => __( 'Fullscreen Background Type', 'fullscreen-background' ),
 				'type'    => 'select',
 				'choices' => array(
 					'image' => __( 'Image', 'fullscreen-background' ),
@@ -294,6 +295,17 @@ function enwbfs_fullscreen_background_wpsf_tabless_settings( $wpsf_settings ) {
 				'desc' => 'Add comma separated elements by class or id to remove background from those elements. For example use .element-class, #element-id, .custom-class, #my-element-id',	
 				'class'	   => 'regular-text',
 			),
+			/*array(
+				'id'      => 'fb_disable_global_settings',
+				'title'   => __( 'Disable global Settings', 'fullscreen-background' ),
+				'type'    => 'checkbox',
+				'choices' => array(
+					'1'  => __( 'Enable', 'fullscreen-background' ),
+					'2'   => __( 'Disable', 'fullscreen-background' ),					
+				),
+				'default'  => '',
+				'class'	   => '',
+			),*/
 		),
 	);
 

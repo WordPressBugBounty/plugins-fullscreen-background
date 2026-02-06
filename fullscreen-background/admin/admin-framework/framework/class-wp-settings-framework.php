@@ -270,10 +270,10 @@ class WordPressSettingsFramework {
         );
         wp_enqueue_script( 'jquery' );
         wp_enqueue_style( 'wp-color-picker' );
-        //comment/uncomment to enable disaqble this color picker rf enweby edited
+        //uncomment to enable disable this color picker rf enweby edited
         wp_enqueue_script( 'wp-color-picker' );
-        //comment/uncomment to enable disaqble this color picker  rf enweby edited
-        //wp_enqueue_script( 'farbtastic' ); //comment/uncomment to enable disaqble this color picker rf enweby edited
+        //uncomment to enable disable this color picker  rf enweby edited
+        //wp_enqueue_script( 'farbtastic' ); //uncomment to enable disaqble this color picker rf enweby edited
         wp_enqueue_script( 'media-upload' );
         wp_enqueue_script( 'thickbox' );
         wp_enqueue_script( 'jquery-ui-core' );
@@ -968,7 +968,7 @@ class WordPressSettingsFramework {
     public function generate_color_field( $args ) {
         $color_picker_id = sprintf( '%s_cp', $args['id'] );
         $args['value'] = esc_attr( stripslashes( $args['value'] ) );
-        // echo sprintf( '<input type="text" class="%1$s-text wp-color-picker-field" data-alpha="true" id="%2$s[%3$s]" name="%6$s" value="%4$s" data-default-color="%5$s" />', $args['id'], $args['value'], $args['default'], $args['name'] );
+        /* echo sprintf( '<input type="text" class="%1$s-text wp-color-picker-field" data-alpha="true" id="%2$s[%3$s]" name="%6$s" value="%4$s" data-default-color="%5$s" />', $args['id'], $args['value'], $args['default'], $args['name'] );*/
         echo '<div style="position:relative;">';
         echo sprintf(
             '<input type="text" name="%s" id="%s" value="%s" class="%s wp-color-picker-field" data-alpha="true" data-default-color="#fff">',
@@ -977,7 +977,7 @@ class WordPressSettingsFramework {
             $args['value'],
             $args['class']
         );
-        // echo sprintf( '<div id="%s" style="position:absolute;top:0;left:190px;background:#fff;z-index:9999;"></div>', $color_picker_id );
+        /* echo sprintf( '<div id="%s" style="position:absolute;top:0;left:190px;background:#fff;z-index:9999;"></div>', $color_picker_id );*/
         $this->generate_description( $args['desc'] );
         echo '<script type="text/javascript">
 			jQuery(document).ready(function($){
@@ -1001,7 +1001,7 @@ class WordPressSettingsFramework {
             $button_id = sprintf( '%s_button', esc_attr( $args['id'] ) );
             $img_preview_class = ( '' != $args['value'] ? 'fb_image_preview' : 'no-image-preview' );
             echo sprintf(
-                '<input style="float:left; margin:0 5px; display:none;" type="text" name="%s" id="%s" value="%s" class="regular-text %s"> ',
+                '<input style="float:left; margin:0 5px; display:none;" type="text" name="%s" id="%s" value="%s" class="regular-text %s">',
                 esc_attr( $args['name'] ),
                 esc_attr( $args['id'] ),
                 esc_attr( $args['value'] ),
@@ -1015,8 +1015,13 @@ class WordPressSettingsFramework {
             } else {
                 $args_value = '';
             }
-            echo sprintf( '<img class="' . $img_preview_class . '" style="float:left; margin:0 5px;width:120px;" src="' . $args_value . '" id="img_preview_%s" />', esc_attr( $button_id ) );
-            // enweby edited
+            if ( '' != $args['value'] ) {
+                echo sprintf( '<img class="' . $img_preview_class . '" style="float:left; margin:0 5px;width:120px;" src="' . $args_value . '" id="img_preview_%s" /><span title="remove" rel="' . esc_attr( $args['id'] ) . '" class="img-remove-global-single">X</span> ', esc_attr( $button_id ) );
+                // enweby edited
+            } else {
+                echo sprintf( '<img class="' . $img_preview_class . '" style="float:left; margin:0 5px;width:120px;" src="' . $args_value . '" id="img_preview_%s" />', esc_attr( $button_id ) );
+                // enweby edited
+            }
             ?>
 			<script type='text/javascript'>
 				jQuery( document ).ready( function( $ ) {
@@ -1049,11 +1054,11 @@ class WordPressSettingsFramework {
 							title: '<?php 
             echo esc_html__( 'Select a image to upload', 'wpsf' );
             ?>',
-							button: {
+							/*button: {
 								text: '<?php 
             echo esc_html__( 'Use this image', 'wpsf' );
             ?>',
-							},
+							},*/
 							library : { type : 'image'},
 							multiple: false	// Set to true to allow multiple files to be selected
 						});
@@ -1067,6 +1072,12 @@ class WordPressSettingsFramework {
 							$( '#img_preview_<?php 
             echo esc_attr( $button_id );
             ?>' ).attr( 'src', attachment.url ).css( 'width', '90' ); // enweby edited
+							$(".img-remove-global-single").remove();
+							$( '#img_preview_<?php 
+            echo esc_attr( $button_id );
+            ?>' ).after( "<span rel='<?php 
+            echo esc_attr( $args['id'] );
+            ?>' class='img-remove-global-single'>X</span>" ); // enweby edited
 							$( '#image_attachment_id' ).val( attachment.id );
 							$( '#<?php 
             echo esc_attr( $args['id'] );
@@ -1109,7 +1120,6 @@ class WordPressSettingsFramework {
             } else {
                 $args_value = '';
             }
-            //echo sprintf( '<input style="float:left; margin:0 5px;" type="text" name="%s" id="%s" value="%s" class="regular-text %s"> ', esc_attr( $args['name'] ), esc_attr( $args['id'] ), esc_attr( $args['value'] ), esc_attr( $args['class'] ) );
             echo sprintf(
                 '<input style="float:left; margin:0 5px;" type="text" name="%s" id="%s" value="%s" class="regular-text %s"> ',
                 esc_attr( $args['name'] ),
@@ -1117,8 +1127,11 @@ class WordPressSettingsFramework {
                 esc_attr( $args_value ),
                 esc_attr( $args['class'] )
             );
-            echo sprintf( '<input style="float:left; margin:0 5px;" type="button" class="button wpsf-browse" id="%s" value="Upload Video" />', esc_attr( $button_id ) );
-            //echo sprintf( '<img class="'.$img_preview_class.'" style="float:left; margin:0 5px;width:90px;" src="'.$args['value'].'" id="img_preview_%s" />', esc_attr( $button_id ) ); // enweby edited
+            if ( '' != $args['value'] ) {
+                echo sprintf( '<span rel="' . esc_attr( $args['id'] ) . '" title="remove" class="vid-remove-global-single">X</span><input style="float:left; margin:0 5px;" type="button" class="button wpsf-browse" id="%s" value="Upload Video" />', esc_attr( $button_id ) );
+            } else {
+                echo sprintf( '<input style="float:left; margin:0 5px;" type="button" class="button wpsf-browse" id="%s" value="Upload Video" />', esc_attr( $button_id ) );
+            }
             ?>
 			<script type='text/javascript'>
 				jQuery( document ).ready( function( $ ) {
@@ -1151,11 +1164,11 @@ class WordPressSettingsFramework {
 							title: '<?php 
             echo esc_html__( 'Select Video to upload', 'wpsf' );
             ?>',
-							button: {
+							/*button: {
 								text: '<?php 
             echo esc_html__( 'Use this video', 'wpsf' );
             ?>',
-							},
+							},*/
 							library : { type : 'video'},
 							multiple: false	// Set to true to allow multiple files to be selected
 						});
@@ -1166,17 +1179,17 @@ class WordPressSettingsFramework {
 							attachment = file_frame.state().get('selection').first().toJSON();
 
 							// Do something with attachment.id and/or attachment.url here
-							//$( '#img_preview_<?php 
-            echo esc_attr( $button_id );
-            ?>' ).attr( 'src', attachment.url ).css( 'width', '90' ); // enweby edited
+							
 							$( '#image_attachment_id' ).val( attachment.id );
 							$( '#<?php 
             echo esc_attr( $args['id'] );
             ?>' ).val( attachment.url );
-							
-							//$( '#img_preview_<?php 
-            echo esc_attr( $button_id );
-            ?>' ).removeClass('no-image-preview');
+							$(".vid-remove-global-single").remove();
+							$( '#<?php 
+            echo esc_attr( $args['id'] );
+            ?>' ).after( "<span rel='<?php 
+            echo esc_attr( $args['id'] );
+            ?>' class='vid-remove-global-single'>X</span>" ); // enweby edited
 							// Restore the main post ID
 							wp.media.model.settings.post.id = wp_media_post_id;
 						});

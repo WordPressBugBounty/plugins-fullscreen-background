@@ -41,6 +41,9 @@
 		function() {
 		
 			//on load global settings
+			/*if( $('#fb_general_section_fb_img_display_type_slideshow').is(':checked') ) {
+				
+			}*/
 			
 			if ( $( ".enwb-fb-pro-class .fb_background_type" ).find( 'option:selected' ).val() == "image" ) {
 				var fb_bg_img_val = $( '.enwb-fb-pro-class #fb_image_url_fb_general_section_fb_bg_image' ).val();
@@ -181,6 +184,24 @@
 				}
 			);
 			
+			$(document).on('click', '.img-remove-global-single', function(e) {
+					var rel = $(this).attr('rel');
+					$("#img_preview_"+rel+"_button").attr('src','');
+					$("#"+rel+"").val('');
+					
+					$(this).remove();
+				}
+			);
+			
+			$('#fb_general_section_fb_disable_global_settings').click(function(){
+					
+				if ($('#fb_general_section_fb_disable_global_settings').is(':checked') ) {
+					$('.wpsf-section.wpsf-tabless .form-table').before('<div class="overlay-dbl-gbl-settings">&nbsp;</div>');
+				} else{
+					$('.overlay-dbl-gbl-settings').remove();
+				}	
+				
+			}); 	
 			
 			//Removing image global settings
 			$(document).on('click', '.img-remove-global', function(e) {
@@ -212,6 +233,13 @@
 				}
 				$(this).closest('.bg-image-list').remove();
 			});
+			
+			$(document).on('click', '.vid-remove-global-single', function(e) {
+					var rel = $(this).attr('rel');
+					$("#"+rel+"").val('');
+					$(this).remove();
+				}
+			);	
 			
 			//Removing video global settings
 			$(document).on('click', '.vid-remove-global', function(e) {
@@ -344,7 +372,7 @@
 					title : 'Enweby Full Screen Media Upload',
 					multiple : 'add',
 					library : { type : 'image'},
-					button : { text : 'Insert' },
+					/*button : { text : 'Insert' },*/
 				  });
 						  
 				  frame.on('open',function() {
@@ -409,7 +437,7 @@
 					title : 'Enweby Full Screen Media Upload',
 					multiple : 'add',
 					library : { type : 'video'},
-					button : { text : 'Insert' },
+					/*button : { text : 'Insert' },*/
 				  });
 						  
 				  frame.on('open',function() {

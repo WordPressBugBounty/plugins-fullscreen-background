@@ -201,6 +201,7 @@ class Fullscreen_Background_Admin {
      */
     public function add_setting_framework_init() {
         add_action( 'init', array($this, 'add_setting_framework') );
+        add_action( 'admin_footer', array($this, 'add_custom_js') );
     }
 
     /**
@@ -211,6 +212,30 @@ class Fullscreen_Background_Admin {
     public function add_setting_framework() {
         require_once plugin_dir_path( __FILE__ ) . 'admin-framework/framework/class-wp-settings-framework.php';
         $this->enweby_admin_settings = new \Enwbfb\Enweby\SettingsFramework\WordPressSettingsFramework(plugin_dir_path( __FILE__ ) . 'admin-framework/admin-settings.php', ENWEBY_FB_FWAS);
+    }
+
+    /**
+     * Including admin js based on some condition.
+     *
+     * @since    1.0.0
+     */
+    public function add_custom_js() {
+        $enweby_fullscreen_background_settings = get_option( 'enweby_fullscreen_background_settings', array() );
+        $fb_general_section_fb_disable_global_settings = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_disable_global_settings'] ) ? $enweby_fullscreen_background_settings['fb_general_section_fb_disable_global_settings'] : 0 );
+        if ( 1 == $fb_general_section_fb_disable_global_settings ) {
+            ?>
+			<script>
+			jQuery(function($){
+					if ($('#fb_general_section_fb_disable_global_settings').is(':checked') ) {
+						$('.wpsf-section.wpsf-tabless .form-table').before('<div class="overlay-dbl-gbl-settings">&nbsp;</div>');
+					} else{
+						$('.overlay-dbl-gbl-settings').remove();
+					}	
+				
+			});
+			</script>
+			<?php 
+        }
     }
 
     /**
