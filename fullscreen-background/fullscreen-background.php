@@ -16,7 +16,7 @@
  * Plugin Name: 	  Fullscreen Background
  * Plugin URI:        https://www.enweby.com/product/fullscreen-background/
  * Description:       Lightweight plugin to add Fullscreen Background image or video on your WordPress site by Enweby.
- * Version:           2.0.6
+ * Version:           2.0.7
  * Author:            Enweby
  * Author URI:        https://www.enweby.com/
  * License:           GPL-2.0+
@@ -42,20 +42,21 @@ if ( function_exists( 'enwbfb_fs' ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
                 $enwbfb_fs = fs_dynamic_init( array(
-                    'id'             => '12796',
-                    'slug'           => 'fullscreen-background',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_ca8aa1c35ac32fc7d44933d812781',
-                    'is_premium'     => false,
-                    'premium_suffix' => 'premium',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'menu'           => array(
+                    'id'               => '12796',
+                    'slug'             => 'fullscreen-background',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_ca8aa1c35ac32fc7d44933d812781',
+                    'is_premium'       => false,
+                    'premium_suffix'   => 'premium',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'menu'             => array(
                         'slug'    => 'enweby-fullscreen-background-settings',
                         'support' => false,
                     ),
-                    'anonymous_mode' => true,
-                    'is_live'        => true,
+                    'anonymous_mode'   => true,
+                    'is_live'          => true,
+                    'is_org_compliant' => true,
                 ) );
             }
             return $enwbfb_fs;
@@ -100,7 +101,7 @@ if ( function_exists( 'enwbfb_fs' ) ) {
      * Start at version 1.0.0 and use SemVer - https://semver.org
      * Rename this for your plugin and update it as you release new versions.
      */
-    define( 'FULLSCREEN_BACKGROUND_VERSION', '2.0.6' );
+    define( 'FULLSCREEN_BACKGROUND_VERSION', '2.0.7' );
     /**
      * Plugin base name.
      * used to locate plugin resources primarily code files

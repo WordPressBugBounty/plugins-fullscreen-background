@@ -150,13 +150,19 @@ class Fullscreen_Background_Public {
         $enweby_fb_make_header_transparent = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_make_header_transparent'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_make_header_transparent'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_make_header_transparent'] : '2' );
         $enweby_fb_remove_elements = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_remove_elements_bg'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_remove_elements_bg'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_remove_elements_bg'] : '' );
         //overriding if page/post wise settings is set
-        //$enwb_fb_settings_meta_values = get_post_meta( get_the_ID(), 'enwb_fb_settings_meta_single', true );
         $enwb_fb_settings_meta_values = $this->get_enwb_fb_settings_meta_single();
+        //change apr 27 2027.
+        $use_page_wise_fb_settings = ( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ? $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] : 0 );
+        //change apr 27 2027.
+        if ( enwbfb_fs()->is_free_plan() ) {
+            $use_page_wise_fb_settings = 0;
+        }
         // Generating background type for css.
         $bg_fullscreen = '';
         switch ( $enweby_fb_background_type ) {
             case 'image':
-                if ( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) {
+                /*		if( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) {*/
+                if ( isset( $use_page_wise_fb_settings ) && 1 == $use_page_wise_fb_settings ) {
                 } else {
                     if ( enwbfb_fs()->is_free_plan() ) {
                         $bg_fullscreen = "background-image: url( '" . $enweby_fb_bg_image . "' );";
@@ -264,10 +270,16 @@ class Fullscreen_Background_Public {
         // Getting background video.
         $background_video = ( '' !== $enweby_fb_bg_video ? $enweby_fb_bg_video : '' );
         $bg_video_html = '';
-        //Gettomg page/post wise settings is set
-        //$enwb_fb_settings_meta_values = get_post_meta( get_the_ID(), 'enwb_fb_settings_meta_single', true );
+        //Gettomg page/post wise settings is set.
         $enwb_fb_settings_meta_values = $this->get_enwb_fb_settings_meta_single();
-        if ( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) {
+        //change apr 27 2027
+        $use_page_wise_fb_settings = ( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ? $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] : 0 );
+        //change apr 27 2027
+        if ( enwbfb_fs()->is_free_plan() ) {
+            $use_page_wise_fb_settings = 0;
+        }
+        /*if( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) {*/
+        if ( isset( $use_page_wise_fb_settings ) && 1 == $use_page_wise_fb_settings ) {
         } else {
             if ( 'video' === $enweby_fb_background_type ) {
                 if ( '' !== $enweby_fb_bg_video ) {
@@ -392,9 +404,15 @@ class Fullscreen_Background_Public {
         $enweby_fullscreen_background_settings = get_option( 'enweby_fullscreen_background_settings', array() );
         $enweby_fb_display_options = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_display_options'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_display_options'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_display_options'] : 'home' );
         $enweby_fb_general_section_fb_background_type = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_background_type'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_background_type'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_background_type'] : 'image' );
-        //$enwb_fb_settings_meta_values = get_post_meta( get_the_ID(), 'enwb_fb_settings_meta_single', true );
         $enwb_fb_settings_meta_values = $this->get_enwb_fb_settings_meta_single();
-        if ( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) {
+        //change apr 27 2027.
+        $use_page_wise_fb_settings = ( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ? $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] : 0 );
+        //change apr 27 2027
+        if ( enwbfb_fs()->is_free_plan() ) {
+            $use_page_wise_fb_settings = 0;
+        }
+        /*	if( isset( $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) && 1 == $enwb_fb_settings_meta_values['use-page-wise-fb-settings'] ) {*/
+        if ( isset( $use_page_wise_fb_settings ) && 1 == $use_page_wise_fb_settings ) {
         } else {
             if ( is_front_page() && 'home' === $enweby_fb_display_options ) {
                 $classes[] = 'enweby-fullscreen-background';
@@ -420,7 +438,7 @@ class Fullscreen_Background_Public {
             if ( 'page' === $enweby_fb_display_options ) {
                 $enweby_fb_page_field_id = ( isset( $enweby_fullscreen_background_settings['fb_general_section_fb_page_field_id'] ) && '' != $enweby_fullscreen_background_settings['fb_general_section_fb_page_field_id'] ? $enweby_fullscreen_background_settings['fb_general_section_fb_page_field_id'] : '' );
                 if ( get_the_id() === (int) $enweby_fb_page_field_id ) {
-                    $classes[] = 'enweby-fullscreen-background';
+                    $classes[] = 'enweby-fullscreen-background page1-' . get_the_id();
                     if ( 'video' == $enweby_fb_general_section_fb_background_type ) {
                         $classes[] = 'enweby-fullscreen-background-video';
                     }

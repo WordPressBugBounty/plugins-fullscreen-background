@@ -11,7 +11,7 @@
 	.enweby-fullscreen-video-background-wrapper {
 	/* Telling our absolute positioned video to be relative to this element */
 	position: absolute;
-	height: 100vh;
+	/*height: 100vh;*/
 	width:100%;
 	z-index:-1;
 	/* Will not allow the video to overflow the container */

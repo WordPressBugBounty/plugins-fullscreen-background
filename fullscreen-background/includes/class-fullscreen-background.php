@@ -200,7 +200,7 @@ class Fullscreen_Background {
             'enweby_setup_fullscreen_background_overlay',
             10
         );
-        $this->loader->add_action( 'wp_body_open', $plugin_public, 'enweby_setup_fullscreen_background_video' );
+        $this->loader->add_action( 'wp_footer', $plugin_public, 'enweby_setup_fullscreen_background_video' );
         // Adding custom styles based on admin settings.
         $this->loader->add_action(
             'wp_head',
