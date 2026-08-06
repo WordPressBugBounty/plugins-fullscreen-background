@@ -4,9 +4,9 @@ Donate link: https://www.enweby.com/donate-now/
 Tags: full screen background video, fullscreen background image, fullscreen bckground video, full screen video, background image, background video on home.
 Requires PHP: 5.6
 Requires at least: 5.6
-Tested up to: 6.9
+Tested up to: 7.0
 Stable tag: trunk
-Version: 2.0.7
+Version: 2.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,6 +27,7 @@ Plugin provides four options to display full screen background given below:
 &#128073; Specific Page
 &#128073; Specific Post
 
+
 == View Plugin Demo ==
 [Full Screen Image Background - Demo 1](https://demo.enweby.com/fullscreen-background-image-demo/)
 [Full Screen Image Background - Demo 2](https://demo.enweby.com/fullscreen-background-image-demo2/)
@@ -37,6 +38,10 @@ Plugin provides four options to display full screen background given below:
 [Full Screen Video Background - Demo 6](https://demo.enweby.com/fullscreen-background-video-demo2/)
 [Full Screen Random Video Background (pro) - Demo 7](https://demo.enweby.com/fullscreen-background-different-video-on-page-refresh-demo/)
 
+
+== Watch "How to Setup?" Video Tutorial ==
+
+https://www.youtube.com/watch?v=2zXeoVB7niY
 
 
 == Plugin Documentation ==
@@ -176,6 +181,11 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 
 == Changelog ==
 
+= 2.0.8 =
+* Wordpress compatibility with 7.0 version.
+* Enhanced Video background.
+* Minor css fixed on admin.
+
 = 2.0.7 =
 * Video background on changed to footer.
 * Minor css fixed on frontned.
@@ -221,7 +231,6 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 * Php 8.2 compatibility error fixed.
 * Wordpress compatibility improved.
 
-
 = 1.0.6 =
 * Small css issue fixed.
 
@@ -246,5 +255,5 @@ A. Free plugins rely on user feedback, therefore, the best thing you can do for 
 * Initial Release.
 
 == Upgrade Notice ==
-= 2.0.7 =
-* Version 2.0.7 released.
+= 2.0.8 =
+* Version 2.0.8 released.

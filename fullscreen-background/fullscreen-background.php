@@ -16,7 +16,7 @@
  * Plugin Name: 	  Fullscreen Background
  * Plugin URI:        https://www.enweby.com/product/fullscreen-background/
  * Description:       Lightweight plugin to add Fullscreen Background image or video on your WordPress site by Enweby.
- * Version:           2.0.7
+ * Version:           2.0.8
  * Author:            Enweby
  * Author URI:        https://www.enweby.com/
  * License:           GPL-2.0+
@@ -101,7 +101,7 @@ if ( function_exists( 'enwbfb_fs' ) ) {
      * Start at version 1.0.0 and use SemVer - https://semver.org
      * Rename this for your plugin and update it as you release new versions.
      */
-    define( 'FULLSCREEN_BACKGROUND_VERSION', '2.0.7' );
+    define( 'FULLSCREEN_BACKGROUND_VERSION', '2.0.8' );
     /**
      * Plugin base name.
      * used to locate plugin resources primarily code files
